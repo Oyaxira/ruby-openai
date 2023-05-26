@@ -77,7 +77,8 @@ module OpenAI
       {
         "Content-Type" => "application/json",
         "Authorization" => "Bearer #{OpenAI.configuration.access_token}",
-        "OpenAI-Organization" => OpenAI.configuration.organization_id
+        "OpenAI-Organization" => OpenAI.configuration.organization_id,
+        "User-Agent" => OpenAI.configuration.user_agent
       }
     end
 
