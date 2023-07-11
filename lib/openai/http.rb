@@ -60,11 +60,10 @@ module OpenAI
         else
           @@cached_chunk = chunk
         end
-        a.info(@@cached_chunk)
         @@cached_chunk.scan(/(?:data|error): (\{.*\})/i).flatten.each do |data|
           user_proc.call(JSON.parse(data))
         rescue JSON::ParserError
-          a.info("chunk error")
+          # a.info("chunk error")
           # Ignore invalid JSON.
         end
       end
